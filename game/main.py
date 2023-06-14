@@ -1,15 +1,21 @@
 # main.py
 
-from PyQt6.QtWidgets import QApplication
-from window import MainWindow
 from twenty48 import Twenty48 as t48
+
+from PyQt6.QtWidgets import QApplication, QGraphicsView
+from PyQt6.QtCore import Qt
+from window import GraphicsScene
 
 app = QApplication([])
 
-window = MainWindow()
-window.show()
+scene = GraphicsScene()
+view = QGraphicsView(scene)
+view.setAlignment(Qt.AlignmentFlag.AlignTop)
+
+view.setWindowTitle("Game 2048")
+view.setFixedSize(500, 600)
+view.show()
 
 game = t48()
-# Connect game signals/slots or interact with the window as needed
 
 app.exec()
