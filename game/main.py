@@ -10,10 +10,10 @@ app = QApplication([])
 
 scene = GraphicsScene()
 view = QGraphicsView(scene)
-view.setAlignment(Qt.AlignmentFlag.AlignTop)
+view.setAlignment(Qt.AlignmentFlag.AlignBottom)
 
 view.setWindowTitle("Game 2048")
-view.setFixedSize(500, 600)
+view.setFixedSize(550, 630)
 view.show()
 
 game = t48()
