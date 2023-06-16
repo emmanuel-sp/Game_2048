@@ -23,7 +23,8 @@ class GraphicsScene(QGraphicsScene):
         self.addRect(QRectF(0, 0, 520, 540), QColor(187,173,160,255), QColor(187,173,160,255)).setPos(14, 62)
         self.font_metrics = QFontMetrics(font)
         self.game = t48()
-        self.game.board[random.randint(0,3)][random.randint(0,3)] = 2
+        self.game.setRandomIndex()
+        self.game.setRandomIndex()
 
         for row in range(4):
             self.rectangles.append([])
@@ -65,16 +66,8 @@ class GraphicsScene(QGraphicsScene):
         elif event.key() == Qt.Key.Key_Right:
             self.game.push("Right")
         if event.key() in valid_keys:
-            self.setRandomIndex()
+            self.game.setRandomIndex()
             self.updateboard()
-
-    def setRandomIndex(self):
-        random_x = random.randint(0,3)
-        random_y = random.randint(0,3)
-        if self.game.board[random_x][random_y] != 0:
-            self.setRandomIndex()
-        else:
-            self.game.board[random_x][random_y] = 2
 
 
 
